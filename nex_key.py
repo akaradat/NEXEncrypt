@@ -27,7 +27,7 @@ class Nex_key:
         
     def gen_all_key(self):
         tmp = ('{:<0'+str(self.block_size)+'}').format(self.nex_tool.str_to_bi(self.key))
-        tmp = tmp[:64]
+        tmp = tmp[:64]  
         self.KR[0] = self.nex_tool.permutate_str( tmp , self.gen_key_patt)
         for i in range(1,9):
             self.KR[i] = self.gen_key(i) 
