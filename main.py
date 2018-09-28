@@ -1,23 +1,23 @@
 from nex_tool import Nex_tool
 from nex_key import Nex_key
 from nex_encrypt import Nex_encrypt
+from nex_decrypt import Nex_decrypt
 
 
 if __name__ == "__main__":
-    tool = Nex_tool()
-    NK = Nex_key('ABC')
     NE = Nex_encrypt('ABCD')
+    ND = Nex_decrypt('ABCD')
+
+    txt_en = NE.encrypt("Hello WORLD สวัสดีชาวโลก 00123 /*-")
+
+    print(txt_en)
+    # print(len(txt_en))
+
+    txt_de = ND.decrypt(txt_en)
+
+    print(txt_de)
+    print(repr(txt_de))
 
 
-    print(NE.encrypt("HELL"))
-    print(NE.encrypt("0123"))
-    print(NE.encrypt("HELL0123"))
 
-    NE.set_key("BBBB")
-    print(NE.encrypt("HELL0123"))
-
-    NE.set_key("ABCD")
-    print(NE.encrypt("HELL0123"))
-
-    # print(Nex_encrypt('ABCD').encode("HELL0123"))
     

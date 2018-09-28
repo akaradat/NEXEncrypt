@@ -3,3 +3,6 @@ patterm.xlsx
 __pycache__/nex_encrypt.cpython-37.pyc
 __pycache__/nex_key.cpython-37.pyc
 __pycache__/nex_tool.cpython-37.pyc
+note.py
+nex_decrypt.py
+main.py

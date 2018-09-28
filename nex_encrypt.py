@@ -40,6 +40,7 @@ class Nex_encrypt:
         self.key = key
         self.block_size = block_size
         self.char_size = char_size
+        self.total_char = int(self.block_size/self.char_size)
         self.nex_tool = Nex_tool(self.block_size,self.char_size)
         self.nex_key = Nex_key(self.key,key_block_size,key_char_size)
 
@@ -47,20 +48,21 @@ class Nex_encrypt:
         self.nex_key.set_key(key)
 
     def encrypt(self, plain_text):
+        plain_text = plain_text.rstrip()
         encrypted = ''
-        str_list = self.nex_tool.split_len(plain_text,4)
+        str_list = self.nex_tool.split_len(plain_text,self.total_char)
         for i in range(len(str_list)):
-            encrypted += self.encrypt_block(str_list[i])
+            encrypted += self.encrypt_block(str_list[i].ljust(self.total_char))
         
-        return encrypted
+        return encrypted.rstrip()
 
     def encrypt_block(self, plain_text):
         # self.plain_text = plain_text
         tmp_text = self.nex_tool.str_to_bi(plain_text)
         for i in range(1,9):
             tmp_text = self.nex_tool.permutate_str(tmp_text, self.swap_patt)
-            tmp_list = self.nex_tool.split_len(tmp_text,16)
-            key_list = self.nex_tool.split_len(self.nex_key.KR[i],16)
+            tmp_list = self.nex_tool.split_len(tmp_text,self.char_size)
+            key_list = self.nex_tool.split_len(self.nex_key.KR[i],self.char_size)
             for j in range(len(tmp_list)):
                 if(key_list[j][-2:] == '00'):
                     tmp_list[j] = self.en00(tmp_list[j],key_list[j])
