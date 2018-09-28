@@ -2,7 +2,7 @@ from collections import deque
 
 class Nex_tool:
 
-    def __init__(self, block_size=64, char_size=16):
+    def __init__(self, block_size, char_size):
         self.block_size = block_size
         self.char_size = char_size
 
@@ -27,7 +27,7 @@ class Nex_tool:
         return ''.join(tmp)
 
     def str_to_bi(self,str):
-        return ''.join(format(ord(x), 'b').zfill(16) for x in str)
+        return ''.join(format(ord(x), 'b').zfill(self.char_size) for x in str)
 
     def bi_to_str(self,bi):
         list_bi = self.split_len(bi,self.char_size)

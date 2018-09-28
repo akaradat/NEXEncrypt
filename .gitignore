@@ -2,5 +2,4 @@ patterm.xlsx
 ~$patterm.xlsx
 __pycache__/
 note.py
-nex_decrypt.py
 main.py
