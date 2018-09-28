@@ -46,15 +46,15 @@ class Nex_encrypt:
     def set_key(self, key):
         self.nex_key.set_key(key)
 
-    def encode(self, plain_text):
-        encoded = ''
+    def encrypt(self, plain_text):
+        encrypted = ''
         str_list = self.nex_tool.split_len(plain_text,4)
         for i in range(len(str_list)):
-            encoded += self.encode_block(str_list[i])
+            encrypted += self.encrypt_block(str_list[i])
         
-        return encoded
+        return encrypted
 
-    def encode_block(self, plain_text):
+    def encrypt_block(self, plain_text):
         # self.plain_text = plain_text
         tmp_text = self.nex_tool.str_to_bi(plain_text)
         for i in range(1,9):

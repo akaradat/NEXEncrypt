@@ -9,7 +9,15 @@ if __name__ == "__main__":
     NE = Nex_encrypt('ABCD')
 
 
-    print(NE.encode("HELL"))
-    print(NE.encode("0123"))
-    print(NE.encode("HELL0123"))
+    print(NE.encrypt("HELL"))
+    print(NE.encrypt("0123"))
+    print(NE.encrypt("HELL0123"))
+
+    NE.set_key("BBBB")
+    print(NE.encrypt("HELL0123"))
+
+    NE.set_key("ABCD")
+    print(NE.encrypt("HELL0123"))
+
+    # print(Nex_encrypt('ABCD').encode("HELL0123"))
     
