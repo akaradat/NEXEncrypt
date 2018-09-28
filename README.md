@@ -7,17 +7,17 @@ NEX encrypt is symmetric-key algorithm for the encryption text using python3 . T
  To **encrypt** text create `Nex_encrypt` with *`key`* input :
  
 ```sh
->>> NE = Nex_encrypt( *key* )
+>>> NE = Nex_encrypt( key )
 ```
 you can change your *`key`* with `Nex_encrypt`
 
 ```sh
->>> NE.set_key( *key* )
+>>> NE.set_key( key )
 ```
 then passing the *`text`* to encrypt to `encode` function :
 
 ```sh
->>> NE.encrypt( *text* )
+>>> NE.encrypt( text )
 ```
 
 ## Referent
